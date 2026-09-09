@@ -493,7 +493,7 @@ local weaponweld = CreateWeld(
     math.rad(85), math.rad(90), math.rad(0), -- New C0 Rotation (Rx, Ry, Rz)
     0, 0, 0,                               -- C1 Position (X, Y, Z)
     math.rad(0), math.rad(0), math.rad(0),   -- C1 Rotation (Rx, Ry, Rz)
-))
+)
 local MainWeldS = CreateWeld(Part475,rarmor,Part475,0,0,0,math.rad(90),math.rad(90),math.rad(0),0,0,0,math.rad(0),math.rad(0),math.rad(0))
 local A0 = Instance.new("Attachment",rarmor)
 A0.Position = Vector3.new(-2.5,0.25,0)
