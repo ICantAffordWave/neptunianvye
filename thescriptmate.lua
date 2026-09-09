@@ -530,14 +530,36 @@ return weld
 end
 ---- WEAPON OR STUFF
 local rarmor = swordhatlmao
-local weaponweld = setaccessoryweld(
-    rarmor, rarmor, tors, rarmor,
-    0, -3, 0,
+local thefuckingmodel = Instance.new("Model")
+thefuckingmodel.Name = "THATSTHEMODELBOY"
+thefuckingmodel.Parent = char
+local OHMYGODAAA = Instance.new("Part")
+OHMYGODAAA.Name = "LAZY AAAAAAAAAAAAAAAA"
+OHMYGODAAA.Size = Vector3.new(1, 1, 1)
+OHMYGODAAA.Transparency = 1
+OHMYGODAAA.CanCollide = false
+OHMYGODAAA.Massless = true
+OHMYGODAAA.Parent = thefuckingmodel
+local weaponweld = CreateWeld(
+    OHMYGODAAA,   -- Weld Parent
+    tors,         -- Part0 (Torso)
+    OHMYGODAAA,   -- Part1 (Proxy Part)
+    0, -3, 0,     
     math.rad(85), math.rad(90), math.rad(0),
-    0, 0, 0,
+    0, 0, 0, 
     math.rad(0), math.rad(0), math.rad(0)
 )
-local MainWeldS = CreateWeld(Part475,rarmor,Part475,0,0,0,math.rad(90),math.rad(90),math.rad(0),0,0,0,math.rad(0),math.rad(0),math.rad(0))
+setaccessoryweld(
+        rarmor,
+        rarmor,       -- Weld Parent
+        OHMYGODAAA,   -- Part0 (Proxy Part)
+        rarmor,       -- Part1 (The Hat)
+        0, 0, 0,      -- 0 offset (it mimics the proxy part perfectly)
+        math.rad(0), math.rad(0), math.rad(0), 
+        0, 0, 0, 
+        math.rad(0), math.rad(0), math.rad(0)
+ )
+--local MainWeldS = CreateWeld(Part475,rarmor,Part475,0,0,0,math.rad(90),math.rad(90),math.rad(0),0,0,0,math.rad(0),math.rad(0),math.rad(0))
 local A0 = Instance.new("Attachment",rarmor)
 A0.Position = Vector3.new(-2.5,0.25,0)
 local A1 = Instance.new("Attachment",rarmor)
