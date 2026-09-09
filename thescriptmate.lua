@@ -63,39 +63,7 @@ local args = {
 	"-net",
 }
 game:GetService("ReplicatedStorage"):WaitForChild("01_server"):FireServer(unpack(args))
-local Global = (getgenv and getgenv()) or shared
-Global.GelatekReanimateConfig = {
-    -- [[ Rig Settings ]] --
-    ["AnimationsDisabled"] = true,
-    ["R15ToR6"] = true,
-    ["DontBreakHairWelds"] = true,
-    ["PermanentDeath"] = true,
-    ["Headless"] = false,
-    ["TeleportBackWhenVoided"] = true,
-    
-    -- [[ Reanimation Settings ]] --
-    ["AlignReanimate"] = false,
-    ["FullForceAlign"] = false,
-    ["FasterHeartbeat"] = true,
-    ["DynamicalVelocity"] = false,
-    ["DisableTweaks"] = false,
-    
-    -- [[ Optimization ]] --
-    ["OptimizeGame"] = false,
-
-    -- [[ Miscellacious ]] --
-    ["LoadLibrary"] = false,
-    ["DetailedCredits"] = false,
-    
-    -- [[ Flinging Methods ]] --
-    ["TorsoFling"] = false,
-    ["BulletEnabled"] = false,
-    ["BulletConfig"] = {
-        ["RunAfterReanimate"] = false,
-        ["LockBulletOnTorso"] = false
-    }
-}
-loadstring(httpget("https://raw.githubusercontent.com/Gelatekussy/GelatekReanimate/main/Main.lua"))()
+loadstring(httpget("https://raw.githubusercontent.com/Jskfhggjxu/My-Script/refs/heads/main/Cool-Reanimate.lua"))()
 task.wait(3)
 local args = {
 	"cmd",
