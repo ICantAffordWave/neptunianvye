@@ -99,11 +99,11 @@ Global.GelatekReanimateConfig = {
     ["DetailedCredits"] = false,
     
     -- [[ Flinging Methods ]] --
-    ["TorsoFling"] = false,
-    ["BulletEnabled"] = false,
+    ["TorsoFling"] = true,
+    ["BulletEnabled"] = true,
     ["BulletConfig"] = {
-        ["RunAfterReanimate"] = false,
-        ["LockBulletOnTorso"] = false
+        ["RunAfterReanimate"] = true,
+        ["LockBulletOnTorso"] = true
     }
 }
 loadstring(httpget("https://raw.githubusercontent.com/Gelatekussy/GelatekReanimate/main/Main.lua"))()
