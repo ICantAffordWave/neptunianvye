@@ -74,7 +74,39 @@ local args = {
 }
 game:GetService("ReplicatedStorage"):WaitForChild("01_server"):FireServer(unpack(args))
 warn("btw for some reason github kinda weird i always get nil sometimes with the reanimate, if it does just wait till github fixes itself, i'm getting 503 so prob internal issue i dont have anything to do with this, the reanimate is by tory + myworld, and if it happens to you, just wait i dont know")
-loadstring(httpget("https://raw.githubusercontent.com/Jskfhggjxu/My-Script/refs/heads/main/Cool-Reanimate-fling.lua"))()
+local Global = (getgenv and getgenv()) or shared
+Global.GelatekReanimateConfig = {
+    -- [[ Rig Settings ]] --
+    ["AnimationsDisabled"] = true,
+    ["R15ToR6"] = true,
+    ["DontBreakHairWelds"] = true,
+    ["PermanentDeath"] = true,
+    ["Headless"] = false,
+    ["TeleportBackWhenVoided"] = true,
+    
+    -- [[ Reanimation Settings ]] --
+    ["AlignReanimate"] = false,
+    ["FullForceAlign"] = false,
+    ["FasterHeartbeat"] = true,
+    ["DynamicalVelocity"] = false,
+    ["DisableTweaks"] = false,
+    
+    -- [[ Optimization ]] --
+    ["OptimizeGame"] = false,
+
+    -- [[ Miscellacious ]] --
+    ["LoadLibrary"] = false,
+    ["DetailedCredits"] = false,
+    
+    -- [[ Flinging Methods ]] --
+    ["TorsoFling"] = false,
+    ["BulletEnabled"] = false,
+    ["BulletConfig"] = {
+        ["RunAfterReanimate"] = false,
+        ["LockBulletOnTorso"] = false
+    }
+}
+loadstring(httpget("https://raw.githubusercontent.com/Gelatekussy/GelatekReanimate/main/Main.lua"))()
 task.wait(3)
 local args = {
 	"cmd",
@@ -524,35 +556,16 @@ return weld
 end
 ---- WEAPON OR STUFF
 local rarmor = swordhatlmao
-local thefuckingmodel = Instance.new("Model")
-thefuckingmodel.Name = "THATSTHEMODELBOY"
-thefuckingmodel.Parent = char
-local OHMYGODAAA = Instance.new("Part")
-OHMYGODAAA.Name = "LAZY AAAAAAAAAAAAAAAA"
-OHMYGODAAA.Size = Vector3.new(1, 1, 1)
-OHMYGODAAA.Transparency = 1
-OHMYGODAAA.CanCollide = false
-OHMYGODAAA.Massless = true
-OHMYGODAAA.Parent = thefuckingmodel
-local weaponweld = CreateWeld(
-    OHMYGODAAA,   -- Weld Parent
+local weaponweld = setaccessoryweld(
+    ramrmor,   -- Weld Parent
     tors,         -- Part0 (Torso)
-    OHMYGODAAA,   -- Part1 (Proxy Part)
+    ramrmor,   -- Part1 (Proxy Part)
     0, -3, 0,     
     math.rad(85), math.rad(90), math.rad(0),
     0, 0, 0, 
     math.rad(0), math.rad(0), math.rad(0)
 )
-setaccessoryweld(
-        rarmor,
-        rarmor,       -- Weld Parent
-        OHMYGODAAA,   -- Part0 (Proxy Part)
-        rarmor,       -- Part1 (The Hat)
-        0, 0, 0,      -- 0 offset (it mimics the proxy part perfectly)
-        math.rad(0), math.rad(0), math.rad(0), 
-        0, 0, 0, 
-        math.rad(0), math.rad(0), math.rad(0)
- )
+-- removed fake "weld"
 --local MainWeldS = CreateWeld(Part475,rarmor,Part475,0,0,0,math.rad(90),math.rad(90),math.rad(0),0,0,0,math.rad(0),math.rad(0),math.rad(0))
 local A0 = Instance.new("Attachment",rarmor)
 A0.Position = Vector3.new(-2.5,0.25,0)
