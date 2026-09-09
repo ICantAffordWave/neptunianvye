@@ -72,6 +72,7 @@ local args = {
 	"-net",
 }
 game:GetService("ReplicatedStorage"):WaitForChild("01_server"):FireServer(unpack(args))
+warn("btw for some reason github kinda weird i always get nil sometimes with the reanimate, if it does just wait till github fixes itself, i'm getting 503 (sometimes) so prob internal issue i dont have anything to do with this, the reanimate is by tory + myworld")
 loadstring(httpget("https://raw.githubusercontent.com/Jskfhggjxu/My-Script/refs/heads/main/Cool-Reanimate.lua"))()
 task.wait(3)
 local args = {
