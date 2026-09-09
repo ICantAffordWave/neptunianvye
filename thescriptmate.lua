@@ -2331,7 +2331,7 @@ kan.Volume = 0
 end
 kan.PlaybackSpeed = ORPIT
 kan.Pitch = ORPIT
-kan.SoundId = "rbxassetid://" ..ORGID
+kan.SoundId = gcaassets[1] -- lazy
 kan.Looped = true
 kan.Parent = plr.PlayerGui
 kan:Resume()
