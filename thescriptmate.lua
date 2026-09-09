@@ -1,6 +1,8 @@
 -- Based from the shitty Syntax 64 leak
 -- also kawowzers! syntax 64 script!
 -- remember ts was bein sold for 10 dollar
+-- btw have fun exploiting! :3
+-- script showcase from 6 years ago from syntax 64: https://www.youtube.com/watch?v=J6rwVPsHqaw
 local player = game.Players.LocalPlayer.Character
 local _ORIGINALFOLDER = "Syntax64"
 local _BASEFOLDER = _ORIGINALFOLDER.."/TomStuff"
@@ -11,7 +13,7 @@ if game.PlaceId ~= placeID then
 error("WRONG PLACE ID BRO")
 end
 local assets = {
-  [1] = {Name = "Syntax64/TomStuff/NeptunianV.mp3", URL = "https://files.catbox.moe/zjd66d.mp3"}
+  [1] = {Name = "Syntax64/TomStuff/NeptunianV.mp3", URL = "https://github.com/ICantAffordWave/neptunianvye/raw/refs/heads/main/music/one.mp3"}
 }
 local gcaassets = {}
 for i, v in ipairs(assets) do
@@ -25,25 +27,39 @@ for i, v in ipairs(assets) do
 	 end
    end
 end
+function notif(titol, text, dur)
+StarterGui:SetCore("SendNotification", {
+    Title = titol,
+    Text = text,
+    Duration = dur or 5,
+})
+end
+notif("Yo!", "Original script by Syntax64. This is based from the leak!", 6)
 -- below code is taken from tory's neptunian v
 local args = {
 	"cmd",
-	"-gh 112934510372081 2649326901"
+	"-gh 112934510372081 2649326901",
 }
 game:GetService("ReplicatedStorage"):WaitForChild("01_server"):FireServer(unpack(args))
 wait(2)
 local args = {
 	"cmd",
-	"-net"
+	"-pd",
+	"-net",
 }
 game:GetService("ReplicatedStorage"):WaitForChild("01_server"):FireServer(unpack(args))
 loadstring(game:HttpGet("https://github.com/Jskfhggjxu/My-Script/raw/refs/heads/main/Cool-Reanimate-fling.lua"))()
-
+task.wait(game:GetService("Players").RespawnTime + 1)
+notif("btw", "Loaded reanimate!", 5)
+function fling(who, dur)
+_G.fling(who, dur)
+end
 warn'Neptune/Neptunian V'
 warn[[Absolutely.
 
 Created by NoobyGames12
 ----------------------------]]
+Created by NoobyGames12
 
 print[[Set your theme by: 
 id/
@@ -74,10 +90,47 @@ end
 cors = {}
 
 
+-- offset by tory also, hat sync by tory
+local hatOffset = CFrame.new(0, -3, 0) * CFrame.Angles(math.rad(85), math.rad(90), math.rad(0))
+local targetMeshId = "94522224942661"
+local swordhatlmao = nil
+local cloneref = (cloneref) or function(o) return o end
+local cgui = cloneref(game:GetService("CoreGui"))
+task.spawn(function()
+    local _player = game:GetService("Players").LocalPlayer
+    local _char = _player.Character or _player.CharacterAdded:Wait()
+    local _rs = game:GetService("RunService")
+    
+    local targetHandle = nil
+    local trueHandle = nil
 
 
+    while not targetHandle do
+        for _, acc in pairs(_char:GetChildren()) do
+            if acc:IsA("Accessory") then
+                local handle = acc:FindFirstChild("Handle")
+                if handle then
+                    local mesh = handle:FindFirstChildOfClass("SpecialMesh")
+                    local currentId = ""
+                    if handle:IsA("MeshPart") then currentId = handle.MeshId
+                    elseif mesh then currentId = mesh.MeshId end
+                    
+                    if string.find(tostring(currentId), targetMeshId) then
+                        targetHandle = handle
+                        break
+                    end
+                end
+            end
+        end
+        if not targetHandle then task.wait(0.5) end
+    end
+    swordhatlmao = targetHandle
+	swordhatlmao.Massless = true
+	swordhatlmao.CanCollide = false
+    return
+end)
 plr = game:GetService("Players").LocalPlayer
-char = workspace["CloneCharacter"]
+char = plr.Character
 hum = char.Humanoid
 local cam = game.Workspace.CurrentCamera
 t = char.Torso
@@ -434,8 +487,14 @@ end
 
 
 ---- WEAPON OR STUFF
-local rarmor = CreateParta(m,1,0,"SmoothPlastic",BrickColor.Random())
-local weaponweld = CreateWeld(rarmor,tors,rarmor,-3,0,-0.5,math.rad(0),math.rad(0),math.rad(-40),0,0,0,math.rad(0),math.rad(0),math.rad(0))
+local rarmor = swordhatlmao
+local weaponweld = CreateWeld(
+    rarmor, tors, rarmor, 
+    0, -3, 0,                               -- New C0 Position (X, Y, Z)
+    math.rad(85), math.rad(90), math.rad(0), -- New C0 Rotation (Rx, Ry, Rz)
+    0, 0, 0,                               -- C1 Position (X, Y, Z)
+    math.rad(0), math.rad(0), math.rad(0),   -- C1 Rotation (Rx, Ry, Rz)
+))
 local MainWeldS = CreateWeld(Part475,rarmor,Part475,0,0,0,math.rad(90),math.rad(90),math.rad(0),0,0,0,math.rad(0),math.rad(0),math.rad(0))
 local A0 = Instance.new("Attachment",rarmor)
 A0.Position = Vector3.new(-2.5,0.25,0)
@@ -1442,7 +1501,7 @@ local floatmode = false
 local OWS = hum.WalkSpeed
 local equipped = false
 -- Humanoid.Name = "NEPTUNIA"
-Humanoid.MaxHealth = math.huge
+Humanoid.MaxHealth = math.huge --...
 Humanoid.Health = math.huge
 Instance.new("ForceField",char).Visible = false
 Humanoid.Animator.Parent = nil
