@@ -1473,7 +1473,7 @@ end
 rng:Destroy()
 end))
 end
-game:GetService("Workspace").CloneCharacter.Model.Part.Attachment.Name = "Attachment2"
+--game:GetService("Workspace").CloneCharacter.Model.Part.Attachment.Name = "Attachment2"
 
 function FindNearestTorso(Position, Distance, SinglePlayer)
 	if SinglePlayer then
@@ -2257,11 +2257,11 @@ if k == "f" and attack == false and equipped == false then
 
 -- 	game:GetService("Workspace").CloneCharacter["Right Arm"].RightGripAttachment.Rotation = Vector3.new(14.16, -100.96, -52)
 -- game:GetService("Workspace").CloneCharacter["Right Arm"].RightGripAttachment.Position = Vector3.new(0.5, -0, -2.7)
-    game:GetService("Workspace").CloneCharacter.AlignOrientation.Attachment1 = game:GetService("Workspace").CloneCharacter.Model.Part.Attachment
-    game:GetService("Workspace").CloneCharacter.AlignPosition.Attachment1 = game:GetService("Workspace").CloneCharacter.Model.Part.Attachment2
+--    game:GetService("Workspace").CloneCharacter.AlignOrientation.Attachment1 = game:GetService("Workspace").CloneCharacter.Model.Part.Attachment
+--    game:GetService("Workspace").CloneCharacter.AlignPosition.Attachment1 = game:GetService("Workspace").CloneCharacter.Model.Part.Attachment2
 
-    game:GetService("Workspace").CloneCharacter.Model.Part.Attachment2.Position = Vector3.new(-2.5, 0.2, -0)
-    game:GetService("Workspace").CloneCharacter.Model.Part.Attachment.Rotation = Vector3.new(-0, -0, -50)
+ --   game:GetService("Workspace").CloneCharacter.Model.Part.Attachment2.Position = Vector3.new(-2.5, 0.2, -0)
+ --   game:GetService("Workspace").CloneCharacter.Model.Part.Attachment.Rotation = Vector3.new(-0, -0, -50)
 
 	
 	equip()
@@ -2269,11 +2269,11 @@ if k == "f" and attack == false and equipped == false then
 -- game:GetService("Workspace").CloneCharacter["Right Arm"].RightGripAttachment.Position = Vector3.new(0.5, -0, -2.7)
 	
 	elseif k == "f" and attack == false and equipped == true then
-  game:GetService("Workspace").CloneCharacter.AlignOrientation.Attachment1 = game:GetService("Workspace").CloneCharacter.Torso.WaistBackAttachment
- game:GetService("Workspace").CloneCharacter.AlignPosition.Attachment1 = game:GetService("Workspace").CloneCharacter.Torso.WaistBackAttachment
+--  game:GetService("Workspace").CloneCharacter.AlignOrientation.Attachment1 = game:GetService("Workspace").CloneCharacter.Torso.WaistBackAttachment
+ --game:GetService("Workspace").CloneCharacter.AlignPosition.Attachment1 = game:GetService("Workspace").CloneCharacter.Torso.WaistBackAttachment
 
-    game:GetService("Workspace").CloneCharacter.Torso.WaistBackAttachment.Position = Vector3.new(-0, -0, 0.6)
-    game:GetService("Workspace").CloneCharacter.Torso.WaistBackAttachment.Orientation = Vector3.new(-4.16, -179.28, 99.8)
+  --  game:GetService("Workspace").CloneCharacter.Torso.WaistBackAttachment.Position = Vector3.new(-0, -0, 0.6)
+  --  game:GetService("Workspace").CloneCharacter.Torso.WaistBackAttachment.Orientation = Vector3.new(-4.16, -179.28, 99.8)
 
    
    unequip()
