@@ -38,7 +38,7 @@ notif("Yo!", "Original script by Syntax64. This is based from the leak!", 6)
 -- below code is taken from tory's neptunian v
 local args = {
 	"cmd",
-	"-gh 112934510372081 2649326901",
+	"-gh 112934510372081", -- optional 2649326901
 }
 game:GetService("ReplicatedStorage"):WaitForChild("01_server"):FireServer(unpack(args))
 wait(2)
