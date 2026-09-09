@@ -4,7 +4,7 @@
 -- btw have fun exploiting! :3
 -- script showcase from 6 years ago from syntax 64: https://www.youtube.com/watch?v=J6rwVPsHqaw
 local player = game.Players.LocalPlayer.Character
-local _ORIGINALFOLDER = "Syntax64"
+local _ORIGINALFOLDER = "Syntax63"
 local _BASEFOLDER = _ORIGINALFOLDER.."/TomStuff"
 if not isfolder(_ORIGINALFOLDER) then makefolder(_ORIGINALFOLDER) end
 if not isfolder(_BASEFOLDER) then makefolder(_BASEFOLDER) end
@@ -29,7 +29,7 @@ function httpget(url)
 	
 end
 local assets = {
-  [1] = {Name = "Syntax64/TomStuff/NeptunianV.mp3", URL = "https://github.com/ICantAffordWave/neptunianvye/raw/refs/heads/main/music/one.mp3"}
+  [1] = {Name = "Syntax63/TomStuff/NeptunianV.mp3", URL = "https://github.com/ICantAffordWave/neptunianvye/raw/refs/heads/main/music/one.mp3", BackupURL = "https://files.catbox.moe/zjd66d.mp3"}
 }
 local gcaassets = {}
 for i, v in ipairs(assets) do
@@ -39,7 +39,15 @@ for i, v in ipairs(assets) do
 	    writefile(v.Name, dat)
 		table.insert(gcaassets, i, getcustomasset(v.Name))
 	 else
-	  warn("we has fucked up! error while downloading: "..tostring(dat))
+	  -- CHECK FOR BACKUP!!!
+	  if v.BackupURL then
+	  local suc2, dat2 = pcall(function() return httpget(v.BackupURL) end)
+	  if suc2 and dat2 then
+	     writefile(v.Name, dat2)
+		table.insert(gcaassets, i, getcustomasset(v.Name))
+	  end
+	 else
+	 warn("dissapointing result. failed to fetch a audio.")
 	 end
    end
 end
