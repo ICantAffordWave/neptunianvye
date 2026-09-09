@@ -2410,46 +2410,54 @@ function CAS1(an, is, io)
 			equip()
 		else
 			unequip()
+			end
+			return Enum.ContextActionResult.Sink
 		end
-		end
+		
 	end
-	return Enum.ContextActionResult.Sink
+	return Enum.ContextActionResult.Pass
 end
 function CAS2(an, is, io)
+	
 	if is ~= Enum.UserInputState.Begin then return Enum.ContextActionResult.Pass end
 	if is == Enum.UserInputState.Begin then
 	if attack == false then
-	    superjump()
-      end
+			superjump()
+			return Enum.ContextActionResult.Sink
+		end
 	end
-	return Enum.ContextActionResult.Sink
+	return Enum.ContextActionResult.Pass
 end
 function CAS3(an, is, io)
 	if is ~= Enum.UserInputState.Begin then return Enum.ContextActionResult.Pass end
 	if is == Enum.UserInputState.Begin then
 		if attack == false and equipped == true then
 			spinnyblade()
+			return Enum.ContextActionResult.Sink
 		end
 	end
-	return Enum.ContextActionResult.Sink
+	return Enum.ContextActionResult.Pass
 end
 function CAS4(an, is, io)
 	if is ~= Enum.UserInputState.Begin then return Enum.ContextActionResult.Pass end
 	if is == Enum.UserInputState.Begin then
 		if attack == false and equipped == true then
 			eightbitmegablade()
+			return Enum.ContextActionResult.Sink
 		end
 	end
-	return Enum.ContextActionResult.Sink
+	return Enum.ContextActionResult.Pass
 end
 function CAS5(an, is, io)
+	
 	if is ~= Enum.UserInputState.Begin then return Enum.ContextActionResult.Pass end
 	if is == Enum.UserInputState.Begin then
 		if attack == false and equipped == true then
 			bladespinagain()
+			return Enum.ContextActionResult.Sink
 		end
 	end
-	return Enum.ContextActionResult.Sink
+	return Enum.ContextActionResult.Pass
 end
 function CAS6(an, is, io)
 	if is ~= Enum.UserInputState.Begin then return Enum.ContextActionResult.Pass end
@@ -2461,8 +2469,9 @@ function CAS6(an, is, io)
 			muter = false
 			kan.Volume = 1.25
 		end
+		return Enum.ContextActionResult.Sink
 	end
-	return Enum.ContextActionResult.Sink
+	return Enum.ContextActionResult.Pass
 end
 function CAS7(an, is, io)
 	if is ~= Enum.UserInputState.Begin then return Enum.ContextActionResult.Pass end
