@@ -15,22 +15,25 @@ end
 function httpget(url)
     local req = (request)
 	if req then
-	local response = req({Url = url})
+	local response = req({Url = url, Method = "GET"})
 	if response.StatusCode ~= 200 then
 	warn("failed to get url "..url.." cuz "..tostring(response.Body).."! ts might be fatal!")
 	return nil
 	else
-	warn("got url "..url.."!")
+	warn("got url "..url.." successfully!")
 	return response.Body
 	end
 	else
 	local p, c = pcall(function() return game:HttpGet(url) end)
 	if p and c then return c else return nil end
 	end
-	
 end
 local assets = {
-  [1] = {Name = "Syntax63/TomStuff/NeptunianV.mp3", URL = "https://github.com/ICantAffordWave/neptunianvye/raw/refs/heads/main/music/one.mp3", BackupURL = "https://files.catbox.moe/zjd66d.mp3"}
+  [1] = {
+         Name = "Syntax63/TomStuff/NeptunianV.mp3", 
+         URL = "https://raw.githubusercontent.com/ICantAffordWave/neptunianvye/refs/heads/main/music/one.mp3", 
+         BackupURL = "https://files.catbox.moe/zjd66d.mp3"
+		}
 }
 local gcaassets = {}
 for i, v in ipairs(assets) do
@@ -46,6 +49,8 @@ for i, v in ipairs(assets) do
 	  if suc2 and dat2 then
 	     writefile(v.Name, dat2)
 		table.insert(gcaassets, i, getcustomasset(v.Name))
+	  else
+	  warn("we failed mate")
 	  end
 	 else
 	 warn("dissapointing result. failed to fetch a audio.")
@@ -410,71 +415,161 @@ chat()
 end
 
 
-local Create = function(ty) return function(props) local o = Instance.new(ty) for k, v in pairs(props) do if type(k) == "number" then v.Parent = o else o[k] = v end end return o end end
-CFuncs = {	
-	["Part"] = {
-		Create = function(Parent, Material, Reflectance, Transparency, BColor, Name, Size)
-			
-			
-		end;
-	};
-	
-	["Mesh"] = {
-		Create = function(Mesh, Part, MeshType, MeshId, OffSet, Scale)
-			
-			if Mesh == "SpecialMesh" then
-				
-			end
-		
-		end;
-	};
-	
-	["Mesh"] = {
-		Create = function(Mesh, Part, MeshType, MeshId, OffSet, Scale)
-			
-			if Mesh == "SpecialMesh" then
-				
-			end
-			
-		end;
-	};
-	
-	["Weld"] = {
-		Create = function(Parent, Part0, Part1, C0, C1)
-			
-			
-		end;
-	};
+local Create = function(ty) return function(props) local o = Instance.new(ty) for k,v in pairs(props) do if type(k)=="number" then v.Parent=o else o[k]=v end end return o end end
 
-	["Sound"] = {
-		Create = function(id, par, vol, pit) 
-			coroutine.resume(coroutine.create(function()
-				
-				wait() 
-				
-			end))
-		end;
-	};
+CFuncs = {
+    ["Part"] = {
+        Create = function(Parent, Material, Reflectance, Transparency, BColor, Name, Size)
+            local Part = Create("Part")({
+                Parent = Parent,
+                Material = Material or Enum.Material.Plastic,
+                Reflectance = Reflectance or 0,
+                Transparency = Transparency or 0,
+                BrickColor = BrickColor.new(BColor or "White"),
+                Name = Name or "Part",
+                Size = Size or Vector3.new(1, 1, 1),
+                TopSurface = Enum.SurfaceType.Smooth,
+                BottomSurface = Enum.SurfaceType.Smooth,
+                CanCollide = false,
+            })
 
-["LongSound"] = {
-		Create = function(id, par, vol, pit) 
-			coroutine.resume(coroutine.create(function()
-				
-				wait() 
-				
-			end))
-		end;
-	};
-	
-	["ParticleEmitter"] = {
-		Create = function(Parent, Color1, Color2, LightEmission, Size, Texture, Transparency, ZOffset, Accel, Drag, LockedToPart, VelocityInheritance, EmissionDirection, Enabled, LifeTime, Rate, Rotation, RotSpeed, Speed, VelocitySpread)
-			
-		end;
-	};
+            return Part
+        end;
+    };
 
-	CreateTemplate = {
-	
-	};
+    ["Mesh"] = {
+        Create = function(Mesh, Part, MeshType, MeshId, OffSet, Scale)
+            local NewMesh
+
+            if Mesh == "SpecialMesh" then
+                NewMesh = Instance.new("SpecialMesh")
+                NewMesh.MeshType = MeshType or Enum.MeshType.FileMesh
+
+                if MeshId then
+                    NewMesh.MeshId = MeshId
+                end
+            else
+                NewMesh = Instance.new(Mesh)
+            end
+
+            NewMesh.Offset = OffSet or Vector3.new(0, 0, 0)
+            NewMesh.Scale = Scale or Vector3.new(1, 1, 1)
+            NewMesh.Parent = Part
+
+            return NewMesh
+        end;
+    };
+
+    ["Weld"] = {
+        Create = function(Parent, Part0, Part1, C0, C1)
+            local Weld = Instance.new("Weld")
+
+            Weld.Part0 = Part0
+            Weld.Part1 = Part1
+            Weld.C0 = C0 or CFrame.new()
+            Weld.C1 = C1 or CFrame.new()
+            Weld.Parent = Parent
+
+            return Weld
+        end;
+    };
+
+    ["Sound"] = {
+        Create = function(id, par, vol, pit)
+            local Sound = Instance.new("Sound")
+
+            Sound.SoundId = "rbxassetid://" .. tostring(id)
+            Sound.Volume = vol or 1
+            Sound.Pitch = pit or 1
+            Sound.Parent = par
+
+            coroutine.resume(coroutine.create(function()
+                task.wait()
+                Sound:Play()
+            end))
+
+            return Sound
+        end;
+    };
+
+    ["LongSound"] = {
+        Create = function(id, par, vol, pit)
+            local Sound = Instance.new("Sound")
+
+            Sound.SoundId = "rbxassetid://" .. tostring(id)
+            Sound.Volume = vol or 1
+            Sound.Pitch = pit or 1
+            Sound.Looped = true
+            Sound.Parent = par
+
+            coroutine.resume(coroutine.create(function()
+                task.wait()
+                Sound:Play()
+            end))
+
+            return Sound
+        end;
+    };
+
+    ["ParticleEmitter"] = {
+        Create = function(
+            Parent,
+            Color1,
+            Color2,
+            LightEmission,
+            Size,
+            Texture,
+            Transparency,
+            ZOffset,
+            Accel,
+            Drag,
+            LockedToPart,
+            VelocityInheritance,
+            EmissionDirection,
+            Enabled,
+            LifeTime,
+            Rate,
+            Rotation,
+            RotSpeed,
+            Speed,
+            VelocitySpread
+        )
+            local Particle = Instance.new("ParticleEmitter")
+
+            Particle.Parent = Parent
+            Particle.Color = ColorSequence.new(
+                Color1 or Color3.new(1, 1, 1),
+                Color2 or Color1 or Color3.new(1, 1, 1)
+            )
+
+            Particle.LightEmission = LightEmission or 0
+            Particle.Size = Size or NumberSequence.new(1)
+            Particle.Texture = Texture or ""
+            Particle.Transparency = Transparency or NumberSequence.new(0)
+            Particle.ZOffset = ZOffset or 0
+            Particle.Acceleration = Accel or Vector3.new(0, 0, 0)
+            Particle.Drag = Drag or 0
+            Particle.LockedToPart = LockedToPart or false
+            Particle.VelocityInheritance = VelocityInheritance or 0
+            Particle.EmissionDirection = EmissionDirection or Enum.NormalId.Top
+            Particle.Enabled = Enabled ~= false
+            Particle.Lifetime = LifeTime or NumberRange.new(1)
+            Particle.Rate = Rate or 10
+            Particle.Rotation = Rotation or NumberRange.new(0)
+            Particle.RotSpeed = RotSpeed or NumberRange.new(0)
+            Particle.Speed = Speed or NumberRange.new(5)
+            Particle.SpreadAngle = Vector2.new(
+                VelocitySpread or 0,
+                VelocitySpread or 0
+            )
+
+            return Particle
+        end;
+    };
+
+    CreateTemplate = {
+ 
+    };
 }
 
 
