@@ -95,7 +95,7 @@ Global.GelatekReanimateConfig = {
         ["LockBulletOnTorso"] = false
     }
 }
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Gelatekussy/GelatekReanimate/main/Main.lua"))()
+loadstring(httpget("https://raw.githubusercontent.com/Gelatekussy/GelatekReanimate/main/Main.lua"))()
 task.wait(3)
 local args = {
 	"cmd",
