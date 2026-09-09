@@ -560,7 +560,7 @@ local weaponweld = setaccessoryweld(
     rarmor,
     rarmor,   -- Weld Parent
     tors,         -- Part0 (Torso)
-    ramrmor,   -- Part1 (Proxy Part)
+    rarmor,   -- Part1 (Proxy Part)
     0, -3, 0,     
     math.rad(85), math.rad(90), math.rad(0),
     0, 0, 0, 
