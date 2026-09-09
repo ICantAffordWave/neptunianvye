@@ -51,6 +51,7 @@ for i, v in ipairs(assets) do
 	 end
    end
 end
+end
 function notif(titol, text, dur)
 game:GetService("StarterGui"):SetCore("SendNotification", {
     Title = titol,
