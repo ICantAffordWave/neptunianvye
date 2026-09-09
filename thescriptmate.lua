@@ -479,13 +479,21 @@ weld.C0 = CFrame.new(C0X,C0Y,C0Z)*CFrame.Angles(C0Xa,C0Ya,C0Za)
 return weld
 end
 
-
-
-
+function setaccessoryweld(hat, parent,part0,part1,C1X,C1Y,C1Z,C1Xa,C1Ya,C1Za,C0X,C0Y,C0Z,C0Xa,C0Ya,C0Za
+   if hat:FindFirstChild("AccessoryWeld") then
+   local weld = hat:FindFirstChild("AccessoryWeld")
+   weld.Parent = parent
+weld.Part0 = part0
+weld.Part1 = part1
+weld.C1 = CFrame.new(C1X,C1Y,C1Z)*CFrame.Angles(C1Xa,C1Ya,C1Za)
+weld.C0 = CFrame.new(C0X,C0Y,C0Z)*CFrame.Angles(C0Xa,C0Ya,C0Za)
+return weld
+   end
+end
 ---- WEAPON OR STUFF
 local rarmor = swordhatlmao
-local weaponweld = CreateWeld(
-    rarmor, tors, rarmor,
+local weaponweld = setaccessoryweld(
+    rarmor, rarmor, tors, rarmor,
     0, -3, 0,
     math.rad(85), math.rad(90), math.rad(0),
     0, 0, 0,
