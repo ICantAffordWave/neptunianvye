@@ -20,6 +20,7 @@ function httpget(url)
 	warn("failed to get url "..url.." cuz "..tostring(response.Body).."! ts might be fatal!")
 	return nil
 	else
+	warn("got url "..url.."!")
 	return response.Body
 	end
 	else
@@ -115,9 +116,6 @@ local args = {
 }
 game:GetService("ReplicatedStorage"):WaitForChild("01_server"):FireServer(unpack(args))
 notif("btw", "Loaded reanimate!", 5)
-function fling(who, dur)
-_G.fling(who, dur)
-end
 warn'Neptune/Neptunian V'
 warn[[Absolutely.
 
@@ -228,7 +226,7 @@ kan.Volume = 0.4
 kan.TimePosition = 0
 kan.PlaybackSpeed = 1.01
 kan.Pitch = 1.01
-kan.SoundId = getcustomasset("Syntax64/TomStuff/NeptunianV.mp3") --default
+kan.SoundId = gcaassets[1] --default
 kan.Name = "nepnepnep"
 kan.Looped = true
 kan:Play()
@@ -2399,7 +2397,7 @@ kan.Volume = 0
 end
 kan.PlaybackSpeed = ORPIT
 kan.Pitch = ORPIT
-kan.SoundId = getcustomasset("Syntax64/TomStuff/NeptunianV.mp3") -- lazy
+kan.SoundId = gcaassets[1] -- lazy
 kan.Looped = true
 kan.Parent = plr.PlayerGui
 kan:Resume()
