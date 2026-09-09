@@ -17,6 +17,7 @@ function httpget(url)
 	if req then
 	local response = req({Url = url})
 	if response.StatusCode ~= 200 then
+	warn("failed to get url "..url.." cuz "..tostring(response.Body).."! ts might be fatal!")
 	return nil
 	else
 	return response.Body
