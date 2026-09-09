@@ -12,13 +12,28 @@ local placeID = 123974602339071
 if game.PlaceId ~= placeID then
 error("WRONG PLACE ID BRO")
 end
+function httpget(url)
+    local req = (request)
+	if req then
+	local response = req({Url = url})
+	if response.StatusCode ~= 200 then
+	return nil
+	else
+	return response.Body
+	end
+	else
+	local p, c = pcall(function() return game:HttpGet(url) end)
+	if p and c then return c else return nil end
+	end
+	
+end
 local assets = {
   [1] = {Name = "Syntax64/TomStuff/NeptunianV.mp3", URL = "https://github.com/ICantAffordWave/neptunianvye/raw/refs/heads/main/music/one.mp3"}
 }
 local gcaassets = {}
 for i, v in ipairs(assets) do
    if v.URL then
-     local suc, dat = pcall(function() return game:HttpGet(v.URL) end)
+     local suc, dat = pcall(function() return httpget(v.URL) end)
 	 if suc and dat then
 	    writefile(v.Name, dat)
 		table.insert(gcaassets, i, getcustomasset(v.Name))
