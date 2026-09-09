@@ -488,11 +488,11 @@ end
 ---- WEAPON OR STUFF
 local rarmor = swordhatlmao
 local weaponweld = CreateWeld(
-    rarmor, tors, rarmor, 
-    0, -3, 0,                               -- New C0 Position (X, Y, Z)
-    math.rad(85), math.rad(90), math.rad(0), -- New C0 Rotation (Rx, Ry, Rz)
-    0, 0, 0,                               -- C1 Position (X, Y, Z)
-    math.rad(0), math.rad(0), math.rad(0),   -- C1 Rotation (Rx, Ry, Rz)
+    rarmor, tors, rarmor,
+    0, -3, 0,
+    math.rad(85), math.rad(90), math.rad(0),
+    0, 0, 0,
+    math.rad(0), math.rad(0), math.rad(0)
 )
 local MainWeldS = CreateWeld(Part475,rarmor,Part475,0,0,0,math.rad(90),math.rad(90),math.rad(0),0,0,0,math.rad(0),math.rad(0),math.rad(0))
 local A0 = Instance.new("Attachment",rarmor)
