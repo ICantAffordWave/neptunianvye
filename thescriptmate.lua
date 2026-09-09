@@ -28,7 +28,7 @@ for i, v in ipairs(assets) do
    end
 end
 function notif(titol, text, dur)
-StarterGui:SetCore("SendNotification", {
+game:GetService("StarterGui"):SetCore("SendNotification", {
     Title = titol,
     Text = text,
     Duration = dur or 5,
