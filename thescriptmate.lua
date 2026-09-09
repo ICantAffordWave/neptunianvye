@@ -74,7 +74,39 @@ local args = {
 }
 game:GetService("ReplicatedStorage"):WaitForChild("01_server"):FireServer(unpack(args))
 warn("btw for some reason github kinda weird i always get nil sometimes with the reanimate, if it does just wait till github fixes itself, i'm getting 503 so prob internal issue i dont have anything to do with this, the reanimate is by tory + myworld, and if it happens to you, just wait i dont know")
-loadstring(httpget("https://raw.githubusercontent.com/Jskfhggjxu/My-Script/refs/heads/main/Cool-Reanimate.lua"))()
+local Global = (getgenv and getgenv()) or shared
+Global.GelatekReanimateConfig = {
+    -- [[ Rig Settings ]] --
+    ["AnimationsDisabled"] = true,
+    ["R15ToR6"] = true,
+    ["DontBreakHairWelds"] = true,
+    ["PermanentDeath"] = true,
+    ["Headless"] = false,
+    ["TeleportBackWhenVoided"] = true,
+    
+    -- [[ Reanimation Settings ]] --
+    ["AlignReanimate"] = false,
+    ["FullForceAlign"] = false,
+    ["FasterHeartbeat"] = true,
+    ["DynamicalVelocity"] = false,
+    ["DisableTweaks"] = false,
+    
+    -- [[ Optimization ]] --
+    ["OptimizeGame"] = false,
+
+    -- [[ Miscellacious ]] --
+    ["LoadLibrary"] = false,
+    ["DetailedCredits"] = false,
+    
+    -- [[ Flinging Methods ]] --
+    ["TorsoFling"] = false,
+    ["BulletEnabled"] = false,
+    ["BulletConfig"] = {
+        ["RunAfterReanimate"] = false,
+        ["LockBulletOnTorso"] = false
+    }
+}
+loadstring(httpget("https://raw.githubusercontent.com/Gelatekussy/GelatekReanimate/main/Main.lua"))()
 task.wait(3)
 local args = {
 	"cmd",
