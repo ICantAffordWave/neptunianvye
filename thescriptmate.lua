@@ -99,11 +99,11 @@ Global.GelatekReanimateConfig = {
     ["DetailedCredits"] = false,
     
     -- [[ Flinging Methods ]] --
-    ["TorsoFling"] = false,
-    ["BulletEnabled"] = false,
+    ["TorsoFling"] = true,
+    ["BulletEnabled"] = true,
     ["BulletConfig"] = {
-        ["RunAfterReanimate"] = false,
-        ["LockBulletOnTorso"] = false
+        ["RunAfterReanimate"] = true,
+        ["LockBulletOnTorso"] = true,
     }
 }
 loadstring(httpget("https://raw.githubusercontent.com/Gelatekussy/GelatekReanimate/main/Main.lua"))()
@@ -557,7 +557,8 @@ end
 ---- WEAPON OR STUFF
 local rarmor = swordhatlmao
 local weaponweld = setaccessoryweld(
-    ramrmor,   -- Weld Parent
+    rarmor,
+    rarmor,   -- Weld Parent
     tors,         -- Part0 (Torso)
     ramrmor,   -- Part1 (Proxy Part)
     0, -3, 0,     
