@@ -95,8 +95,7 @@ local targetMeshId = "94522224942661"
 local swordhatlmao = nil
 local cloneref = (cloneref) or function(o) return o end
 local cgui = cloneref(game:GetService("CoreGui"))
-task.spawn(function()
-    local _player = game:GetService("Players").LocalPlayer
+ local _player = game:GetService("Players").LocalPlayer
     local _char = _player.Character or _player.CharacterAdded:Wait()
     local _rs = game:GetService("RunService")
     
@@ -126,8 +125,6 @@ task.spawn(function()
     swordhatlmao = targetHandle
 	swordhatlmao.Massless = true
 	swordhatlmao.CanCollide = false
-    return
-end)
 plr = game:GetService("Players").LocalPlayer
 char = plr.Character
 hum = char.Humanoid
@@ -170,7 +167,7 @@ kan.Pitch = 1.01
 kan.SoundId = gcaassets[1] --default
 kan.Name = "nepnepnep"
 kan.Looped = true
--- kan:Play()
+kan:Play()
 
 --------------------------- GUI STUFF
 local basgui = it("GuiMain")
