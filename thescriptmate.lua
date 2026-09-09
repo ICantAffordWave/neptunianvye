@@ -217,7 +217,7 @@ kan.Volume = 0.4
 kan.TimePosition = 0
 kan.PlaybackSpeed = 1.01
 kan.Pitch = 1.01
-kan.SoundId = gcaassets[1] --default
+kan.SoundId = getcustomasset("Syntax64/TomStuff/NeptunianV.mp3") --default
 kan.Name = "nepnepnep"
 kan.Looped = true
 kan:Play()
@@ -2406,7 +2406,7 @@ kan.Volume = 0
 end
 kan.PlaybackSpeed = ORPIT
 kan.Pitch = ORPIT
-kan.SoundId = gcaassets[1] -- lazy
+kan.SoundId = getcustomasset("Syntax64/TomStuff/NeptunianV.mp3") -- lazy
 kan.Looped = true
 kan.Parent = plr.PlayerGui
 kan:Resume()
