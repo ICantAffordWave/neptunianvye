@@ -48,8 +48,46 @@ local args = {
 	"-net",
 }
 game:GetService("ReplicatedStorage"):WaitForChild("01_server"):FireServer(unpack(args))
-loadstring(game:HttpGet("https://github.com/Jskfhggjxu/My-Script/raw/refs/heads/main/Cool-Reanimate-fling.lua"))()
-task.wait(game:GetService("Players").RespawnTime + 1)
+local Global = (getgenv and getgenv()) or shared
+Global.GelatekReanimateConfig = {
+    -- [[ Rig Settings ]] --
+    ["AnimationsDisabled"] = true,
+    ["R15ToR6"] = true,
+    ["DontBreakHairWelds"] = true,
+    ["PermanentDeath"] = true,
+    ["Headless"] = false,
+    ["TeleportBackWhenVoided"] = true,
+    
+    -- [[ Reanimation Settings ]] --
+    ["AlignReanimate"] = false,
+    ["FullForceAlign"] = false,
+    ["FasterHeartbeat"] = true,
+    ["DynamicalVelocity"] = false,
+    ["DisableTweaks"] = false,
+    
+    -- [[ Optimization ]] --
+    ["OptimizeGame"] = false,
+
+    -- [[ Miscellacious ]] --
+    ["LoadLibrary"] = false,
+    ["DetailedCredits"] = false,
+    
+    -- [[ Flinging Methods ]] --
+    ["TorsoFling"] = false,
+    ["BulletEnabled"] = false,
+    ["BulletConfig"] = {
+        ["RunAfterReanimate"] = false,
+        ["LockBulletOnTorso"] = false
+    }
+}
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Gelatekussy/GelatekReanimate/main/Main.lua"))()
+task.wait(3)
+local args = {
+	"cmd",
+	"-pd",
+	"-net",
+}
+game:GetService("ReplicatedStorage"):WaitForChild("01_server"):FireServer(unpack(args))
 notif("btw", "Loaded reanimate!", 5)
 function fling(who, dur)
 _G.fling(who, dur)
